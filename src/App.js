@@ -35,70 +35,90 @@ import User from './components/User';
 import CounterTwo from './components/CounterTwo';
 import ComponentC from './components/ComponentC';
 import { UserProvider } from './components/userContext';
-
+import { Routes,Route } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Navbar from './components/Navbar';
+import OrderSummary from './components/OrderSummary';
+function extraApp() {
+  return (
+    <div className='App'>
+          <Greet name = "David" score = {90}>
+        <p>He is TA</p>
+      </Greet>
+      <Greet name = "Phoebe" score = {60}>
+        <button>Contact</button>
+      </Greet>
+      <Greet name = "Clara" score = {70} />
+      <Welcome />
+      <Hello />
+      <Counter></Counter>
+      <FunctionClick/>
+      <ClassClick/>
+      <EventBind/>
+      <ParentComponent/>
+      <UserGreeting/>
+      <NameList/>
+      <StyleSheet primary = {true}/>
+      <Inline/>
+      <Form/>
+      <h1 className='error'>Error</h1>
+      <h1 className=''>Success</h1>
+      <LifecycleA></LifecycleA>
+      <FragmentDemo/>
+      <Table></Table>
+      <ParentComp/> 
+      <RefsDemo/> 
+      <FocusInput />
+      <FRParentInput />
+      <PortalDemo></PortalDemo>
+      <ErrorBoundary>
+        <Hero heroName="Batman"></Hero>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Hero heroName="Superman"></Hero>
+      </ErrorBoundary>
+      {/* <ErrorBoundary>
+        <Hero heroName="Joker"></Hero>
+      </ErrorBoundary>  */}
+      <ClickCounter name= "James"/>
+      <HoverCounter name = "Phoebe"/>
+      <ClickCounterTwo/>
+      <HoverCounterTwo/>
+      <User render={(isLoggIn)=>isLoggIn? "Vishwas":"Guest"}/>
+      <CounterTwo 
+      render = {(count,incrementCount)=>(
+      <ClickCounterTwo count={count} incrementCount={incrementCount}>
+      </ClickCounterTwo>)}/>
+      <CounterTwo 
+      render = {(count,incrementCount)=>(
+      <HoverCounterTwo count={count} incrementCount={incrementCount}>
+      </HoverCounterTwo>)}/>
+      <UserProvider value="Vishwas">
+        <ComponentC/>
+      </UserProvider>
+      
+    </div> 
+  );  
+}
 class App extends Component {
   render(){
-    
     return (
-      <div className='App'>
-        <Greet name = "David" score = {90}>
-          <p>He is TA</p>
-        </Greet>
-        <Greet name = "Phoebe" score = {60}>
-          <button>Contact</button>
-        </Greet>
-        <Greet name = "Clara" score = {70} />
-        <Welcome />
-        <Hello />
-        <Counter></Counter>
-        <FunctionClick/>
-        <ClassClick/>
-        <EventBind/>
-        <ParentComponent/>
-        <UserGreeting/>
-        <NameList/>
-        <StyleSheet primary = {true}/>
-        <Inline/>
-        <Form/>
-        <h1 className='error'>Error</h1>
-        <h1 className=''>Success</h1>
-        <LifecycleA></LifecycleA>
-        <FragmentDemo/>
-        <Table></Table>
-        <ParentComp/> 
-        <RefsDemo/> 
-        <FocusInput />
-        <FRParentInput />
-        <PortalDemo></PortalDemo>
-        <ErrorBoundary>
-          <Hero heroName="Batman"></Hero>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Hero heroName="Superman"></Hero>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Hero heroName="Joker"></Hero>
-        </ErrorBoundary> 
-        <ClickCounter name= "James"/>
-        <HoverCounter name = "Phoebe"/>
-        <ClickCounterTwo/>
-        <HoverCounterTwo/>
-        <User render={(isLoggIn)=>isLoggIn? "Vishwas":"Guest"}/>
-        <CounterTwo 
-        render = {(count,incrementCount)=>(
-        <ClickCounterTwo count={count} incrementCount={incrementCount}>
-        </ClickCounterTwo>)}/>
-        <CounterTwo 
-        render = {(count,incrementCount)=>(
-        <HoverCounterTwo count={count} incrementCount={incrementCount}>
-        </HoverCounterTwo>)}/>
-        <UserProvider value="Vishwas">
-          <ComponentC/>
-        </UserProvider>
-        
-      </div>
+      <>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='about' element = {<About></About>}></Route>
+        <Route path='order-summary' element = {<OrderSummary></OrderSummary>}></Route>
+        <Route path='original' element = {extraApp()}></Route>
+      </Routes>
+      </>
     );
+    // return (
+      
+    // );
   }
+
 }
 // function App() {
 //   return (
@@ -125,3 +145,4 @@ export default App;
 // </a>
 // </header> */ */}
 
+ 
