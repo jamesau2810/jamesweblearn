@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Go to https://james-firebase-web-hosting--myfirebase-53e4d.us-central1.hosted.app/ to see deployment
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
