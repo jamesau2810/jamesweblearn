@@ -40,16 +40,17 @@ import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import OrderSummary from './components/OrderSummary';
+import GlobalGood from './components/GlobalGood';
 function extraApp() {
   return (
     <div className='App'>
-          <Greet name = "David" score = {90}>
-        <p>He is TA</p>
+          <Greet name = "Shirley" score = {90}>
+        <p>She is TA</p>
       </Greet>
-      <Greet name = "Phoebe" score = {60}>
+      <Greet name = "Jenny" score = {60}>
         <button>Contact</button>
       </Greet>
-      <Greet name = "Clara" score = {70} />
+      <Greet name = "Ying" score = {70} />
       <Welcome />
       <Hello />
       <Counter></Counter>
@@ -81,11 +82,11 @@ function extraApp() {
       {/* <ErrorBoundary>
         <Hero heroName="Joker"></Hero>
       </ErrorBoundary>  */}
-      <ClickCounter name= "James"/>
-      <HoverCounter name = "Phoebe"/>
+      <ClickCounter name= "Joshua"/>
+      <HoverCounter name = "Leon"/>
       <ClickCounterTwo/>
       <HoverCounterTwo/>
-      <User render={(isLoggIn)=>isLoggIn? "Vishwas":"Guest"}/>
+      <User render={(isLoggIn)=>isLoggIn? "Davy":"Guest"}/>
       <CounterTwo 
       render = {(count,incrementCount)=>(
       <ClickCounterTwo count={count} incrementCount={incrementCount}>
@@ -94,7 +95,7 @@ function extraApp() {
       render = {(count,incrementCount)=>(
       <HoverCounterTwo count={count} incrementCount={incrementCount}>
       </HoverCounterTwo>)}/>
-      <UserProvider value="Vishwas">
+      <UserProvider value="JeffChan">
         <ComponentC/>
       </UserProvider>
       
@@ -111,6 +112,7 @@ class App extends Component {
         <Route path='about' element = {<About></About>}></Route>
         <Route path='order-summary' element = {<OrderSummary></OrderSummary>}></Route>
         <Route path='original' element = {extraApp()}></Route>
+        <Route path='global-good' element = {<GlobalGood></GlobalGood>}></Route>
       </Routes>
       </>
     );
@@ -144,5 +146,3 @@ export default App;
 //   Learn React
 // </a>
 // </header> */ */}
-
- 

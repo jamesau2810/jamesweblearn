@@ -13,6 +13,7 @@ const Navbar = () => {
         <NavLink style={navLinkStyles} to = "/">Home</NavLink>
         <NavLink style={navLinkStyles} to = "/about">About</NavLink>
         <NavLink style={navLinkStyles} to = "/original">Original</NavLink>
+        <NavLink style={navLinkStyles} to = "/global-good">Global Good</NavLink>  
     </nav>
   );
 }

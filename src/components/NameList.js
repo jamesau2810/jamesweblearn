@@ -10,16 +10,16 @@ function NameList() {
         skill:"FINA"
     },{
         id:2,
-        name:"Phoebe",
+        name:"Janette",
         age:21,
-        skill:"Bio and Biz"
+        skill:"MARKETING"
     },{
         id:3,
-        name:"Clara",
+        name:"Fira",
         age:20,
-        skill:"Android"
+        skill:"UI/UX"
     }]
-    const names = ["Dana","Phoebe","Clara"]
+    const names = ["Dana","Janette","Fira"]
     // List : key = give unique<h#> (Reserved word: Inaccessible in Child)
     // const nameItem = persons.map(person => <Person key={person.id} person = {person}/>)
     const nameItem = names.map((name,index) => <h2 key={index} >{index} {name}</h2>)
