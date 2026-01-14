@@ -8,12 +8,12 @@ export class ParentComp extends Component {
       super(props)
     
       this.state = {
-         name:'Vishwas'
+         name:'Max'
       }
     }
     componentDidMount(){
         setInterval(()=>{this.setState({
-            name:'Vishwas'
+            name:'Dana'
         })},2000)
     }
   render() {

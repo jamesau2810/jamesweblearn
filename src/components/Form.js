@@ -5,53 +5,65 @@ class Form extends Component {
       super(props)
     
       this.state = {
-         username:'',
-         comments: '',
-         topic:'react'
+         formFields: {
+           username: '',
+           comments: '',
+           topic: 'react'
+         }
       }
+      this.fields = [
+        { name: 'username', label: 'Username', type: 'text' },
+        { name: 'comments', label: 'Comments', type: 'textarea' },
+        { name: 'topic', label: 'Topic', type: 'select', options: ['react', 'angular', 'vue'] }
+      ]
     }
-    handleUsernameChange = (event) => {
-        this.setState({
-            username:event.target.value
-        })
-    }
-    handeleCommentsChange = event =>{
-        this.setState({
-            comments: event.target.value
-        })
-    }
-    handleTopicChange = event => {
-        this.setState({
-            topic: event.target.value
-        })
+    handleChange = event => {
+      const { name, value } = event.target;
+      this.setState(prevState => ({
+        formFields: {
+          ...prevState.formFields,
+          [name]: value
+        }
+      }));
     }
     handleSubmit = event => {
-        alert(`${this.state.username} ${this.state.comments} ${this.state.topic}`)
-        event.preventDefault()
+      const { username, comments, topic } = this.state.formFields;
+      alert(`${username} ${comments} ${topic}`)
+      event.preventDefault()
     }
   render() {
-    const {username,comments,topic} = this.state
+    const { formFields } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
-            <label>Username</label>
-            <input type='text'
-            value={username}
-            onChange={this.handleUsernameChange}></input>
-        </div>
-        <div>
-            <label>Comments</label>
-            <textarea value={comments}
-            onChange={this.handeleCommentsChange}></textarea>
-        </div>
-        <div>
-            <label>Topic</label>
-            <select value={topic} onChange={this.handleTopicChange}>
-                <option value="react">React</option>
-                <option value="angular">Angular</option>
-                <option value="vue">Vue</option>
-            </select>
-        </div>
+        {this.fields.map(field => (
+          <div key={field.name}>
+            <label>{field.label}</label>
+            {field.type === 'textarea' ? (
+              <textarea
+                name={field.name}
+                value={formFields[field.name]}
+                onChange={this.handleChange}
+              />
+            ) : field.type === 'select' ? (
+              <select
+                name={field.name}
+                value={formFields[field.name]}
+                onChange={this.handleChange}
+              >
+                {field.options.map(option => (
+                  <option key={option} value={option}>{option.charAt(0).toUpperCase() + option.slice(1)}</option>
+                ))}
+              </select>
+            ) : (
+              <input
+                type={field.type}
+                name={field.name}
+                value={formFields[field.name]}
+                onChange={this.handleChange}
+              />
+            )}
+          </div>
+        ))}
         <button>Submit</button>
       </form>
     )

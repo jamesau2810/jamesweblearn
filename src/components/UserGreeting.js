@@ -17,7 +17,7 @@ export class UserGreeting extends Component {
     //     message = <div>Welcome Guest</div>
     // }
     // return (<div>{message}</div>)
-    return (this.state.isLoggin?<div>Welcome Vishwas</div>:<div>Welcome Guest</div>)
+    return (this.state.isLoggin?<div>Welcome Jason</div>:<div>Welcome Guest</div>)
     // if (this.state.isLoggin) {
     //     return (
     //         <div>
